@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: beige;
+}
+
+.navbar {
+  background: black;
+  color: aquamarine;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+}
+.navbar a {
+  color: beige;
+  text-decoration: none;
+}
+.navbar a:hover {
+  color: aquamarine;
+}
+
+.categories-bar {
+  background: black;
+  padding: 15px;
+  width: 100%;
+}
+.categories-bar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.categories-bar a {
+  color: goldenrod;
+  text-decoration: none;
+  font-weight: bold;
+}
+.categories-bar a:hover {
+  color: aquamarine;
+}
+
+.hero {
+  background: aquamarine;
+  color: black;
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero button {
+  background: black;
+  color: aquamarine;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.hero button:hover {
+  background: goldenrod;
+  color: black;
+}
+
+.content {
+  padding: 20px;
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.search input {
+  flex: 1;
+  padding: 10px;
+}
+.search button {
+  background: aquamarine;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.login-form {
+  background: grey;
+  color: beige;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.login-form h2 {
+  color: aquamarine;
+  margin-bottom: 10px;
+}
+.login-form input, .login-form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+.login-form button {
+  background: aquamarine;
+  border: none;
+  cursor: pointer;
+}
+.login-form button:hover {
+  background: goldenrod;
+  color: black;
+}
+
+.featured h2 {
+  color: aquamarine;
+  margin-bottom: 10px;
+}
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  background: beige;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 30%;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.card h3 {
+  color: aquamarine;
+  margin-top: 10px;
+}
+
+.anime-gallery h2 {
+  color: aquamarine;
+  margin: 20px 0 10px 0;
+}
+.anime-gallery .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.anime-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.anime-gallery img:hover {
+  transform: scale(1.05);
+}
+
+.anime-section h2 {
+  color: aquamarine;
+  margin: 20px 0 10px 0;
+}
+.anime-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.anime-card {
+  background: beige;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 30%;
+}
+.anime-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.anime-card h3 {
+  color: aquamarine;
+  margin-top: 10px;
+}
+.anime-card p {
+  color: goldenrod;
+}
+
+.footer {
+  background: grey;
+  color: beige;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .categories-bar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .cards .card,
+  .anime-cards .anime-card {
+    width: 100%;
+  }
+  .dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+}
