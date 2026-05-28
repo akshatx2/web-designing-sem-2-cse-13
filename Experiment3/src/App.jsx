@@ -6,6 +6,7 @@ import './App.css'
 function App(){
   return (
     <>
+    {/* Akshat Gupta */}
       <div className='min-h-screen flex flex-col'>
         <header>
           <nav className='bg-slate-800 text-white p-4 flex items-center'>
