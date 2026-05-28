@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.block {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 10px rgba(123, 234, 158, 0.1);
+  background: white;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 6px;
+  border: 1px solid #0f0101;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #333;
+  color: white;
+}
