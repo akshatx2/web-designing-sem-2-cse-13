@@ -1,0 +1,54 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background: black;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid teal;
+}
+
+h1 { margin-bottom: 20px; color: aquamarine; }
+
+input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid aquamarine;
+  background: black;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  display: block;
+  width: 100%;
+}
+
+button {
+  padding: 10px 30px;
+  background: teal;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover { background: maroon; }
+
+#result {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.even { color: green; }
+.odd  { color: red; }
