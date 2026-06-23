@@ -3,17 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OVONIME</title>
+  <title>OvONIME</title>
   <link rel="stylesheet" href="style25.css">
 </head>
 <body>
+
+  <!-- TRENDING TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      🔥 Trending: Demon Slayer &nbsp;|&nbsp; ⭐ New Episode: One Piece 1100 &nbsp;|&nbsp; 🎬 Season 2: Attack on Titan &nbsp;|&nbsp; 🆕 Just Added: Death Note &nbsp;|&nbsp; 🔥 Top Rated: Naruto Shippuden &nbsp;|&nbsp;
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
   <header class="navbar">
     <h1>OvONIME</h1>
     <nav>
       <ul class="nav-list">
         <li><a href="#">Home</a></li>
         <li class="dropdown">
-          <a href="#">Anime List</a>
+          <a href="#">Anime List ▾</a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Romance</a></li>
@@ -22,109 +31,185 @@
           </ul>
         </li>
         <li><a href="#featured">Featured</a></li>
+        <li><a href="#watchlist">Watchlist</a></li>
         <li><a href="#login">Login</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
-    <h2>Welcome to OvONIME</h2>
-    <p>Watch your favorite anime anytime, anywhere.</p>
-    <button>Explore Now</button>
+    <div class="hero-content">
+      <span class="badge">🔥 #1 Anime Platform</span>
+      <h2>Your Universe of Anime</h2>
+      <p>Stream thousands of anime episodes — anytime, anywhere, for free.</p>
+      <div class="hero-btns">
+        <button onclick="scrollToFeatured()">Explore Now</button>
+        <button class="outline-btn" onclick="scrollToSection('watchlist')">My Watchlist</button>
+      </div>
+    </div>
   </section>
 
-  <aside class="sidebar">
-    <h2>Categories</h2>
-    <ul>
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Romance</a></li>
-      <li><a href="#">Comedy</a></li>
-      <li><a href="#">Fantasy</a></li>
-    </ul>
-  </aside>
-
   <main class="content">
+
+    <!-- SEARCH -->
     <section class="search">
-      <input type="text" placeholder="Search Anime...">
-      <button>Search</button>
+      <input type="text" id="searchInput" placeholder="🔍 Search anime..." oninput="filterAnime()">
     </section>
 
-    <section id="login" class="login-form">
-      <h2>Login</h2>
-      <form>
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-      </form>
-    </section>
-
+    <!-- FEATURED -->
     <section id="featured" class="featured">
       <h2>Featured Anime</h2>
       <div class="cards">
         <div class="card">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcvHJ8xPll5Up2mo5hhiDugdVL-CIOpxVJrw&s" alt="Naruto">
-          <h3>Naruto</h3>
+          <div class="card-label">Naruto</div>
         </div>
         <div class="card">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2NFxZ0CbIVphhH_McTTadPUiyttpRdn3EWQ&s" alt="One Piece">
-          <h3>One Piece</h3>
+          <div class="card-label">One Piece</div>
         </div>
         <div class="card">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvW8xqOwAmhLlJtGFGlnvhAR-XGJt0dD8TeQ&s" alt="Attack on Titan">
-          <h3>Attack on Titan</h3>
+          <div class="card-label">Attack on Titan</div>
         </div>
       </div>
     </section>
 
-    <section class="anime-gallery">
-      <h2>Popular Anime</h2>
-      <div class="gallery">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT_vIzXt9hNnT_q61KU3NR4l8V-1S1bFG9wg&s" alt="Anime 1">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6_NW29fuoFVMKRbFjrvJkxTUBIzI2vt9FEA&s" alt="Anime 2">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvW8xqOwAmhLlJtGFGlnvhAR-XGJt0dD8TeQ&s" alt="Attack on Titan" alt="Anime 3">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2NFxZ0CbIVphhH_McTTadPUiyttpRdn3EWQ&s" alt="Anime 4">
-      </div>
-    </section>
-
+    <!-- ANIME COLLECTION -->
     <section class="anime-section">
       <h2>Anime Collection</h2>
-      <div class="anime-cards">
-        <div class="anime-card">
-          <img src="https://via.placeholder.com/200x300?text=Naruto" alt="Naruto">
-          <h3>Naruto</h3>
-          <p>Season: 5</p>
-          <p>Episodes: 220</p>
+      <p id="noResult" style="display:none; color:#c77dff; text-align:center; margin-top:10px;">No anime found.</p>
+      <div class="anime-cards" id="animeCollection">
+
+        <div class="anime-card" data-name="naruto">
+          <div class="card-img-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcvHJ8xPll5Up2mo5hhiDugdVL-CIOpxVJrw&s" alt="Naruto">
+            <span class="genre-tag">Action</span>
+          </div>
+          <div class="card-info">
+            <h3>Naruto</h3>
+            <div class="stars">★★★★★</div>
+            <p>Episodes: 220</p>
+            <div class="card-btns">
+              <button class="watch-btn" onclick="watchAnime('Naruto')">▶ Watch</button>
+              <button class="wl-btn" onclick="addToWatchlist('Naruto')">+ Watchlist</button>
+            </div>
+          </div>
         </div>
-        <div class="anime-card">
-          <img src="https://via.placeholder.com/200x300?text=One+Piece" alt="One Piece">
-          <h3>One Piece</h3>
-          <p>Season: Ongoing</p>
-          <p>Episodes: 1000+</p>
+
+        <div class="anime-card" data-name="one piece">
+          <div class="card-img-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2NFxZ0CbIVphhH_McTTadPUiyttpRdn3EWQ&s" alt="One Piece">
+            <span class="genre-tag">Adventure</span>
+          </div>
+          <div class="card-info">
+            <h3>One Piece</h3>
+            <div class="stars">★★★★★</div>
+            <p>Episodes: 1000+</p>
+            <div class="card-btns">
+              <button class="watch-btn" onclick="watchAnime('One Piece')">▶ Watch</button>
+              <button class="wl-btn" onclick="addToWatchlist('One Piece')">+ Watchlist</button>
+            </div>
+          </div>
         </div>
-        <div class="anime-card">
-          <img src="https://via.placeholder.com/200x300?text=Attack+on+Titan" alt="Attack on Titan">
-          <h3>Attack on Titan</h3>
-          <p>Season: 4</p>
-          <p>Episodes: 87</p>
+
+        <div class="anime-card" data-name="attack on titan">
+          <div class="card-img-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvW8xqOwAmhLlJtGFGlnvhAR-XGJt0dD8TeQ&s" alt="Attack on Titan">
+            <span class="genre-tag">Dark</span>
+          </div>
+          <div class="card-info">
+            <h3>Attack on Titan</h3>
+            <div class="stars">★★★★★</div>
+            <p>Episodes: 87</p>
+            <div class="card-btns">
+              <button class="watch-btn" onclick="watchAnime('Attack on Titan')">▶ Watch</button>
+              <button class="wl-btn" onclick="addToWatchlist('Attack on Titan')">+ Watchlist</button>
+            </div>
+          </div>
         </div>
-        <div class="anime-card">
-          <img src="https://via.placeholder.com/200x300?text=Demon+Slayer" alt="Demon Slayer">
-          <h3>Demon Slayer</h3>
-          <p>Season: 3</p>
-          <p>Episodes: 55</p>
+
+        <div class="anime-card" data-name="demon slayer">
+          <div class="card-img-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6_NW29fuoFVMKRbFjrvJkxTUBIzI2vt9FEA&s" alt="Demon Slayer">
+            <span class="genre-tag">Action</span>
+          </div>
+          <div class="card-info">
+            <h3>Demon Slayer</h3>
+            <div class="stars">★★★★☆</div>
+            <p>Episodes: 55</p>
+            <div class="card-btns">
+              <button class="watch-btn" onclick="watchAnime('Demon Slayer')">▶ Watch</button>
+              <button class="wl-btn" onclick="addToWatchlist('Demon Slayer')">+ Watchlist</button>
+            </div>
+          </div>
         </div>
-        <div class="anime-card">
-          <img src="https://via.placeholder.com/200x300?text=Death+Note" alt="Death Note">
-          <h3>Death Note</h3>
-          <p>Season: 1</p>
-          <p>Episodes: 37</p>
+
+        <div class="anime-card" data-name="death note">
+          <div class="card-img-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT_vIzXt9hNnT_q61KU3NR4l8V-1S1bFG9wg&s" alt="Death Note">
+            <span class="genre-tag">Thriller</span>
+          </div>
+          <div class="card-info">
+            <h3>Death Note</h3>
+            <div class="stars">★★★★★</div>
+            <p>Episodes: 37</p>
+            <div class="card-btns">
+              <button class="watch-btn" onclick="watchAnime('Death Note')">▶ Watch</button>
+              <button class="wl-btn" onclick="addToWatchlist('Death Note')">+ Watchlist</button>
+            </div>
+          </div>
         </div>
+
+        <div class="anime-card" data-name="fullmetal alchemist">
+          <div class="card-img-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfMCHqsQagJbObbVkpLjRT0jYaLxR4MXy0MA&s" alt="Fullmetal Alchemist">
+            <span class="genre-tag">Fantasy</span>
+          </div>
+          <div class="card-info">
+            <h3>Fullmetal Alchemist</h3>
+            <div class="stars">★★★★★</div>
+            <p>Episodes: 64</p>
+            <div class="card-btns">
+              <button class="watch-btn" onclick="watchAnime('Fullmetal Alchemist')">▶ Watch</button>
+              <button class="wl-btn" onclick="addToWatchlist('Fullmetal Alchemist')">+ Watchlist</button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
+
+    <!-- WATCHLIST -->
+    <section id="watchlist" class="watchlist-section">
+      <h2>My Watchlist</h2>
+      <ul id="watchlistItems"><li class="empty-msg">No anime added yet.</li></ul>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="login" class="login-form">
+      <h2>Login</h2>
+      <div id="loginMsg" class="login-msg"></div>
+      <form onsubmit="handleLogin(event)">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
   </main>
 
+  <!-- TOAST -->
+  <div id="toast" class="toast"></div>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
+
   <footer class="footer">
-    <p>&copy; 2025 AnimeStream. All rights reserved.</p>
+    <p>🎌 &copy; 2025 OvONIME. All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
